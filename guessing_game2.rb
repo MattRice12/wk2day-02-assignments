@@ -78,9 +78,11 @@ class Game
     loop do
       puts "Please guess a number from 1 to 100. > "
       response = gets.chomp.to_i
-      if response != 0
+      if response != 0 && response <= 100
         return response
       else
+        puts "___________________________________"
+        puts "Sorry, that is an incorrect input."
         puts
       end
     end
@@ -110,7 +112,7 @@ class Game
       end
       if count >= 5
         puts
-        puts "I've given you 5 chances to guess the number #{ran_number}, but you couldn't guess it. YOU LOSE!"
+        puts "I've given you 5 chances to guess the number #{ran_number}, but you couldn't guess it. ROBOTS TAKE OVER THE WORLD BEEP BOOP!"
         break
       end
     end

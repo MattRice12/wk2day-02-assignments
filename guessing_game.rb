@@ -20,7 +20,6 @@
     # If player num == random_num --> puts "You got it!"
   #end
 
-
 # Classes = Number_set, Number_generator, Player, Game
 
 #Data: Numbers 1-100
@@ -28,22 +27,12 @@
 class Number_gen
   attr_reader :num_set
   def initialize
-    @num_set = num_set
     @num_gen = num_gen
   end
 
-  def num_set
-    @num_set = *(1..100)
-  end
-
   def num_gen
-    @num_gen = @num_set.sample
-  end
-end
-
-class Random_num_selector
-  def initialize
-
+    @num_gen = *(1..100)
+    @num_gen.sample
   end
 end
 
@@ -85,8 +74,17 @@ class Game
   end
 
   def guess_number
-    puts "Please guess a number from 1 to 100. > "
-    gets.chomp.to_i
+    loop do
+      puts "Please guess a number from 1 to 100. > "
+      response = gets.chomp.to_i
+      if response != 0 && response <= 100
+        return response
+      else
+        puts "___________________________________"
+        puts "Sorry, that is an incorrect input."
+        puts
+      end
+    end
   end
 
   def start
@@ -113,7 +111,7 @@ class Game
       end
       if count >= 5
         puts
-        puts "I've given you 5 chances to guess the number #{ran_number}, but you couldn't guess it. YOU LOSE!"
+        puts "I've given you 5 chances to guess the number #{ran_number}, but you couldn't guess it. ROBOTS TAKE OVER THE WORLD BEEP BOOP!"
         break
       end
     end

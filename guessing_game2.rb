@@ -20,7 +20,6 @@
     # If player num == random_num --> puts "You got it!"
   #end
 
-
 # Classes = Number_set, Number_generator, Player, Game
 
 #Data: Numbers 1-100
